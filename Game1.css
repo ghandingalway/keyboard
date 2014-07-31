@@ -1,0 +1,126 @@
+.imag{
+	float: left; 
+	border-radius:15px;
+	position: fixed;
+	height: 240px;
+	width: 120px;
+	visibility: visible;
+}
+.toprow{
+	top: 35%;
+	
+}
+.bottomrow{
+	top: 45%;
+	
+}
+.firstcolumn
+{
+	left:5%;
+	
+}
+.secondcolumn
+{
+	left:16%;
+}
+.thirdcolumn
+{
+	left:27%;
+}
+.fourthcolumn
+{
+	left:38%;
+}
+.fifthcolumn
+{
+	left:49%;
+}
+.sixthcolumn
+{
+	left:60%;
+}
+.seventhcolumn
+{
+	left:71%;
+}
+.eighthcolumn
+{
+	left:82%;
+}
+div.facedown
+{
+/*	background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');*/
+}
+.red
+{
+	background:#ff0000;
+}
+.facedown.red
+{
+	background:#ffc0cb;
+}
+.orange
+{
+	background: #ffa500;
+}
+.facedown.orange
+{
+	background: #ffdb99;
+}
+.yellow
+{
+	background:#ffff00;
+}
+.facedown.yellow
+{
+	background:#ffff90;
+}
+.green
+{
+	background:#008000;
+}
+.facedown.green
+{
+	background:#98fb98;
+}
+.blue
+{
+	background:#0000ff;
+}
+.facedown.blue
+{
+	background:#add8e6
+}
+.indigo
+{
+	background: #6F339B;
+}
+.facedown.indigo
+{
+	 background: #B799CD;
+}
+.fireworks1
+{
+	background-size: 250px 500px;
+	height: 500px;
+	width: 250px;
+	top: 10%;
+	left:15%;
+}
+.fireworks2
+{
+	background-size: 250px 500px;
+	height: 500px;
+	width: 250px;
+	top: 10%;
+	left:60%;
+}
+.violet
+{
+/*	background-image:url('http://addison.typepad.com/.a/6a00d8341c1a9053ef01a73dd31b6f970d-pi');
+*/	background:#800080;
+}
+.facedown.violet
+{
+	background:#dda0dd;
+}
