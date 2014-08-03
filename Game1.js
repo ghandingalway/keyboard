@@ -46,182 +46,60 @@ $(document).ready(function()
 	/*Frere Jacques*/
 	$(".sample.red").mousedown(function()
 	{
-		E4.play();
-		window.setTimeout(function()
+		var beat = 800;
+		var tune = [{name:E4, time:1},
+					{name:F4, time:1},
+					{name:G4, time:1},
+					{name:E4, time:1},
+					{time:0.01},
+					{name:E4, time:1},
+					{name:F4, time:1},
+					{name:G4, time:1},
+					{name:E4, time:1},
+					{name:G4, time:1},
+					{name:A4, time:1},
+					{name:B4, time:2},
+					{name:G4, time:1},
+					{name:A4, time:1},
+					{name:B4, time:2},
+					{time:0.01},
+					{name:B4, time:0.5},
+					{name:C5, time:0.5},
+					{name:B4, time:0.5},
+					{name:A4, time:0.5},
+					{name:G4, time:1},
+					{name:E4, time:1},
+					{name:B4, time:0.5},
+					{name:C5, time:0.5},
+					{name:B4, time:0.5},
+					{name:A4, time:0.5},
+					{name:G4, time:1},
+					{name:E4, time:1},
+					{time:0.01},
+					{name:E4, time:1},
+					{name:C4, time:1},
+					{name:E4, time:2},
+					{time:0.01},
+					{name:E4, time:1},
+					{name:C4, time:1},
+					{name:E4, time:2}];
+		var currentnote;
+		var tuneloop = function()
 		{
-			E4.unplay();
-			F4.play();
-		}, 800);
-		window.setTimeout(function()
-		{
-			F4.unplay();
-			G4.play();
-		}, 1600);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			E4.play();
-		}, 2400);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-		}, 3200);
-		window.setTimeout(function()
-		{E4.play();
-		}, 3300);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			F4.play();
-		}, 4100);
-		window.setTimeout(function()
-		{
-			F4.unplay();
-			G4.play();
-		}, 4900);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			E4.play();
-		}, 5700);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			G4.play();
-		}, 6500);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			A4.play();
-		}, 7300);
-		window.setTimeout(function()
-		{
-			A4.unplay();
-			B4.play();
-		}, 8100);
-		window.setTimeout(function()
-		{
-			B4.unplay();
-			G4.play();
-		}, 9700);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			A4.play();
-		}, 10500);
-		window.setTimeout(function()
-		{
-			A4.unplay();
-			B4.play();
-		}, 11300);
-		window.setTimeout(function()
-		{
-			B4.unplay();	
-		}, 12900);
-		window.setTimeout(function()
-		{
-			B4.play();
-		}, 13000);
-		window.setTimeout(function()
-		{
-			B4.unplay();
-			C5.play();
-		}, 13800);
-		window.setTimeout(function()
-		{
-			C5.unplay();
-			B4.play();
-		}, 14200);
-		window.setTimeout(function()
-		{
-			B4.unplay();
-			A4.play();
-		}, 14600)
-		window.setTimeout(function()
-		{
-			A4.unplay();
-			G4.play();
-		}, 15000);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			E4.play();
-		}, 15800);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			B4.play();
-		}, 16600);
-		window.setTimeout(function()
-		{
-			B4.unplay();
-			C5.play();
-		}, 17000);
-		window.setTimeout(function()
-		{
-		C5.unplay();
-			B4.play();
-		}, 17400);
-		window.setTimeout(function()
-		{
-			B4.unplay();
-			A4.play();
-		}, 17800);
-		window.setTimeout(function()
-		{
-			A4.unplay();
-			G4.play();
-		}, 18200);
-		window.setTimeout(function()
-		{
-			G4.unplay();
-			E4.play();
-		}, 19000);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			
-		}, 19800);
-		window.setTimeout(function()
-		{
-			E4.play();
-			
-		}, 19900);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			C4.play();
-		}, 20300);
-		window.setTimeout(function()
-		{
-			C4.unplay();
-			E4.play();
-		}, 21500);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			
-		}, 22900);
-		window.setTimeout(function()
-		{
-			
-			E4.play();
-		}, 23000);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			C4.play();
-		}, 23800);
-		window.setTimeout(function()
-		{
-			C4.unplay();
-			E4.play();
-		}, 24600);
-		window.setTimeout(function()
-		{
-			E4.unplay();
-			
-		}, 26200);
+			if(currentnote && currentnote.name)
+			{
+				currentnote.name.unplay();
+			}
+			currentnote = tune.shift();
+			if(currentnote)
+			{
+				if(currentnote.name){currentnote.name.play();}
+				window.setTimeout(
+				tuneloop, beat*currentnote.time) 	
+			}	
+		};
+		tuneloop();
+		
 	});
 });
 
