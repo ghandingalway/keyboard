@@ -38,16 +38,8 @@ $(document).ready(function()
 	var B4 = new Note('seventhcolumn', $('#B4')[0], $('.imag')[6]);
 	var C5 = new Note('eightcolumn', $('#C5')[0], $('.imag')[7]);
 	var octave = [C4, D4, E4, F4, G4, A4, B4, C5];
-	
-	$(".imag").each(function(i)
-	{
-		
-	});
-	/*Frere Jacques*/
-	$(".sample.red").mousedown(function()
-	{
-		var beat = 800;
-		var tune = [{name:E4, time:1},
+	var running = false;
+	var FrereJacques = [{name:E4, time:1},
 					{name:F4, time:1},
 					{name:G4, time:1},
 					{name:E4, time:1},
@@ -83,6 +75,174 @@ $(document).ready(function()
 					{name:E4, time:1},
 					{name:C4, time:1},
 					{name:E4, time:2}];
+	
+	var OldMcDonald = [{name:F4, time:1},
+					{ time:0.01},
+					{name:F4, time:1},
+					{time:0.01},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:D4, time:1},
+					{time:0.01},
+					{name:D4, time:1},
+					{name:C4, time:2},
+					{name:A4, time:1},
+					{time:0.01},
+					{name:A4, time:1},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:F4, time:3},
+					{name:C4, time:1},
+					{name:F4, time:1},
+					{ time:0.01},
+					{name:F4, time:1},
+					{time:0.01},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:D4, time:1},
+					{time:0.01},
+					{name:D4, time:1},
+					{name:C4, time:2},
+					{name:A4, time:1},
+					{time:0.01},
+					{name:A4, time:1},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:F4, time:3},
+					{name:C4, time:1},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:2},
+					{time:0.01},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:0.5},
+					{time:0.5},
+					{name:F4, time:1},
+					{time:0.01},
+					{name:F4, time:1},
+					{time:0.01},
+					{name:F4, time:1},
+					{name:C4, time:1},
+					{name:D4, time:1},
+					{time:0.01},
+					{name:D4, time:1},
+					{name:C4, time:2},
+					{name:A4, time:1},
+					{time:0.01},
+					{name:A4, time:1},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:G4, time:1},
+					{time:0.01},
+					{name:F4, time:4}];
+	
+	var Wheels = [{name:C4, time:1},
+	{name:F4, time:1},
+	{time:0.01},
+	{name:F4, time:0.5},
+	{time:0.01},
+	{name:F4, time:0.5},
+	{time:0.01},
+	{name:F4, time:1},
+	{name:A4, time:1},
+	{name:C5, time:1},
+	{name:A4, time:1},
+	{name:F4, time:2},
+	{name:G4, time:1},
+	{name:E4, time:1},
+	{name:C4, time:2},
+	{name:C5, time:1},
+	{name:A4, time:1},
+	{name:F4, time:1},
+	{name:C4, time:1},
+	{name:F4, time:1},
+	{time:0.01},
+	{name:F4, time:0.5},
+	{time:0.01},
+	{name:F4, time:0.5},
+	{time:0.01},
+	{name:F4, time:1},
+	{name:A4, time:1},
+	{name:C5, time:1},
+	{name:A4, time:1},
+	{name:F4, time:2},
+	{name:G4, time:2},
+	{name:C4, time:1},
+	{time:0.01},
+	{name:C4, time:1},
+	{name:F4,time:2}];
+	var RowRow = [{name:C4, time:3},
+	{time:0.01},
+	{name:C4, time:3},
+	{time:0.01},
+	{name:C4, time:2},
+	{name:D4, time:1},
+	{name:E4, time:3},
+	{time:0.01},
+	{name:E4, time:2},
+	{name:D4, time:1},
+	{name:E4, time:2},
+	{name:F4, time:1},
+	{name:G4, time:6},
+	{name:C5, time:1},
+	{time:0.01},
+	{name:C5, time:1},
+	{time:0.01},
+	{name:C5, time:1},
+	{name:G4, time:1},
+	{time:0.01},
+	{name:G4, time:1},
+	{time:0.01},
+	{name:G4, time:1},
+	{name:E4, time:1},
+	{time:0.01},
+	{name:E4, time:1},
+	{time:0.01},
+	{name:E4, time:1},
+	{name:C4, time:1},
+	{time:0.01},
+	{name:C4, time:1},
+	{time:0.01},
+	{name:C4, time:1},
+	{name:G4, time:2},
+	{name:F4, time:1},
+	{name:E4, time:2},
+	{name:D4, time:1},
+	{name:C4, time:6}];
+	$(".imag").each(function(i)
+	{
+		
+	});
+	
+	$(".sample").each(function(i)
+	{
+		$(this).mousedown(function()
+		{
+		var beat = [800, 500, 500, 400];
+		var empty = [];
+			
+		var tune = [FrereJacques.concat(empty), OldMcDonald.concat(empty), Wheels.concat(empty), RowRow.concat(empty)];
 		var currentnote;
 		var tuneloop = function()
 		{
@@ -90,16 +250,18 @@ $(document).ready(function()
 			{
 				currentnote.name.unplay();
 			}
-			currentnote = tune.shift();
+			currentnote = tune[i].shift();
 			if(currentnote)
 			{
 				if(currentnote.name){currentnote.name.play();}
 				window.setTimeout(
-				tuneloop, beat*currentnote.time) 	
+				tuneloop, beat[i]*currentnote.time)
+			
 			}	
+			running = true;
 		};
-		tuneloop();
-		
+		if(running === false){tuneloop();}
+		running = false});
 	});
 });
 
