@@ -53,6 +53,12 @@ border-radius: 15px;
 {
 	left:82%;
 }
+.central
+{
+	top: 38%;
+	float: left;
+	position: fixed;
+}
 div.facedown
 {
 /*	background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');*/
@@ -105,26 +111,9 @@ div.facedown
 {
 	 background: #B799CD;
 }
-.fireworks1
-{
-	background-size: 250px 500px;
-	height: 500px;
-	width: 250px;
-	top: 10%;
-	left:15%;
-}
-.fireworks2
-{
-	background-size: 250px 500px;
-	height: 500px;
-	width: 250px;
-	top: 10%;
-	left:60%;
-}
 .violet
 {
-/*	background-image:url('http://addison.typepad.com/.a/6a00d8341c1a9053ef01a73dd31b6f970d-pi');
-*/	background:#800080;
+	background:#800080;
 }
 .facedown.violet
 {
