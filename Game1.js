@@ -15,6 +15,12 @@
 			{that.unplay();
 			}, 300);
 		});
+		$(element).mouseleave(function()
+		{
+			window.setTimeout(function()
+			{that.unplay();
+			},500);
+		});
 	}
 	Note.prototype.play = function()
 	{
@@ -192,42 +198,39 @@ $(document).ready(function()
 	{time:0.01},
 	{name:C4, time:1},
 	{name:F4,time:2}];
-	var RowRow = [{name:C4, time:3},
-	{time:0.01},
-	{name:C4, time:3},
-	{time:0.01},
-	{name:C4, time:2},
+	var Hickory = [{name:E4, time:1},
+	{name:F4, time:1},
+	{name:G4, time:1},
+	{name:F4, time:1},
+	{name:E4, time:1},
 	{name:D4, time:1},
 	{name:E4, time:3},
+	{time:2},
+	{name:E4, time:1},
 	{time:0.01},
 	{name:E4, time:2},
+	{name:G4, time:1},
+	{name:F4, time:2},
 	{name:D4, time:1},
+	{name:E4, time:3},
+	{time:2},
+	{name:E4, time:1},
+	{time:0.01},
 	{name:E4, time:2},
-	{name:F4, time:1},
-	{name:G4, time:6},
-	{name:C5, time:1},
-	{time:0.01},
-	{name:C5, time:1},
-	{time:0.01},
-	{name:C5, time:1},
-	{name:G4, time:1},
-	{time:0.01},
-	{name:G4, time:1},
-	{time:0.01},
-	{name:G4, time:1},
-	{name:E4, time:1},
 	{time:0.01},
 	{name:E4, time:1},
-	{time:0.01},
-	{name:E4, time:1},
-	{name:C4, time:1},
-	{time:0.01},
-	{name:C4, time:1},
-	{time:0.01},
-	{name:C4, time:1},
 	{name:G4, time:2},
+	{time:0.01},
+	{name:G4, time:1},
+	{name:F4, time:2},
+	{time:0.01},
 	{name:F4, time:1},
-	{name:E4, time:2},
+	{name:A4, time:3},
+	{name: G4, time:1},
+	{name:A4, time:1},
+	{name:G4, time:1},
+	{name:F4, time:1},
+	{name:E4, time:1},
 	{name:D4, time:1},
 	{name:C4, time:6}];
 	$(".imag").each(function(i)
@@ -239,31 +242,72 @@ $(document).ready(function()
 	{
 		$(this).mousedown(function()
 		{
-		var beat = [800, 500, 500, 400];
+		var beat = [800, 500, 500, 500];
 		var empty = [];
-			
-		var tune = [FrereJacques.concat(empty), OldMcDonald.concat(empty), Wheels.concat(empty), RowRow.concat(empty)];
+		var tune = [FrereJacques.concat(empty), OldMcDonald.concat(empty), Wheels.concat(empty), Hickory.concat(empty)];
 		var currentnote;
+		var rightdirection = true;
+		
+		$("#Slower").click(function()
+			{
+				if(beat[i]<2500)
+				{beat[i] = beat[i]*1.1;
+				}
+				else
+				{
+					beat[i] = 2500;
+				}
+			});
+			$("#Faster").click(function()
+				{
+					if(beat[i]>=100)
+					{
+						beat[i] = beat[i]*0.9;
+					}
+					else
+					{
+						beat[i] = 100;
+					}
+				});
+			$("#Backwards").click(function()
+			{
+				if(rightdirection)
+				{rightdirection=false;
+				this.innerHTML = "Forwards";
+				}
+				else{
+					rightdirection = true;
+					this.innerHTML="Backwards";
+				}
+			});
 		var tuneloop = function()
 		{
 			if(currentnote && currentnote.name)
 			{
 				currentnote.name.unplay();
 			}
-			currentnote = tune[i].shift();
+			
+			if(rightdirection===true)
+			{
+				currentnote = tune[i].shift();
+			}
+			else
+			{
+				currentnote=tune[i].pop();
+			}
 			if(currentnote)
 			{
 				if(currentnote.name){currentnote.name.play();}
 				window.setTimeout(
 				tuneloop, beat[i]*currentnote.time)
-			
-			}	
+			};	
 			running = true;
 		};
 		if(running === false){tuneloop();}
-		running = false});
+		running = false;
+		});
+	
 	});
+	
 });
-
-
 })();
