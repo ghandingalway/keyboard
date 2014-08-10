@@ -237,7 +237,9 @@ $(document).ready(function()
 	{
 		
 	});
-	
+	$("#slider").slider(
+	{range:"min", min:100, value:800, max: 1500}
+			);
 	$(".sample").each(function(i)
 	{
 		$(this).mousedown(function()
@@ -247,7 +249,7 @@ $(document).ready(function()
 		var tune = [FrereJacques.concat(empty), OldMcDonald.concat(empty), Wheels.concat(empty), Hickory.concat(empty)];
 		var currentnote;
 		var rightdirection = true;
-		
+			
 		$("#Slower").click(function()
 			{
 				if(beat[i]<2500)
@@ -297,7 +299,10 @@ $(document).ready(function()
 			}
 			if(currentnote)
 			{
-				if(currentnote.name){currentnote.name.play();}
+				if(currentnote.name){
+					currentnote.name.play();
+					beat[i] = $("#slider").slider("value");
+				}
 				window.setTimeout(
 				tuneloop, beat[i]*currentnote.time)
 			};	
@@ -310,4 +315,6 @@ $(document).ready(function()
 	});
 	
 });
+
+
 })();
