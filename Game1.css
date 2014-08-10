@@ -59,6 +59,14 @@ border-radius: 15px;
 	float: left;
 	position: fixed;
 }
+.slide
+{
+	top: 35%;
+	float:left;
+	position: fixed;
+	width: 10%;
+	left: 60%;
+}
 div.facedown
 {
 /*	background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');*/
@@ -119,3 +127,4 @@ div.facedown
 {
 	background:#dda0dd;
 }
+
