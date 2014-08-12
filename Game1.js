@@ -249,28 +249,7 @@ $(document).ready(function()
 		var tune = [FrereJacques.concat(empty), OldMcDonald.concat(empty), Wheels.concat(empty), Hickory.concat(empty)];
 		var currentnote;
 		var rightdirection = true;
-			
-		$("#Slower").click(function()
-			{
-				if(beat[i]<2500)
-				{beat[i] = beat[i]*1.1;
-				}
-				else
-				{
-					beat[i] = 2500;
-				}
-			});
-			$("#Faster").click(function()
-				{
-					if(beat[i]>=100)
-					{
-						beat[i] = beat[i]*0.9;
-					}
-					else
-					{
-						beat[i] = 100;
-					}
-				});
+		$("#slider").slider("value", beat[i]);	
 			$("#Backwards").click(function()
 			{
 				if(rightdirection)
@@ -287,6 +266,7 @@ $(document).ready(function()
 			if(currentnote && currentnote.name)
 			{
 				currentnote.name.unplay();
+				running = false;
 			}
 			
 			if(rightdirection===true)
@@ -305,11 +285,11 @@ $(document).ready(function()
 				}
 				window.setTimeout(
 				tuneloop, beat[i]*currentnote.time)
+				running = true;
 			};	
-			running = true;
 		};
 		if(running === false){tuneloop();}
-		running = false;
+		
 		});
 	
 	});
