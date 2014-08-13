@@ -288,7 +288,8 @@ $(document).ready(function()
 				window.setTimeout(
 				tuneloop, beat[i]*currentnote.time)
 				running = true;
-			};	
+			};
+			running = false;
 		};
 		if(running === false){tuneloop();}
 		
