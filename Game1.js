@@ -250,15 +250,17 @@ $(document).ready(function()
 		var currentnote;
 		var rightdirection = true;
 		$("#slider").slider("value", beat[i]);	
-			$("#Backwards").click(function()
+			$(".Backwards").click(function()
 			{
 				if(rightdirection)
 				{rightdirection=false;
 				this.innerHTML = "Forwards";
+					$(this).toggleClass("Forwards", true);
 				}
 				else{
 					rightdirection = true;
 					this.innerHTML="Backwards";
+					$(this).toggleClass("Forwards", false);
 				}
 			});
 		var tuneloop = function()
