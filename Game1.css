@@ -17,7 +17,7 @@ border-radius: 15px;
 	
 }
 .bottomrow{
-	top: 45%;
+	top: 50%;
 	
 }
 .firstcolumn
@@ -53,23 +53,45 @@ border-radius: 15px;
 {
 	left:82%;
 }
-.central
-{
-	top: 38%;
-	float: left;
-	position: fixed;
-}
 .slide
 {
-	top: 35%;
+	top: 37%;
 	float:left;
 	position: fixed;
-	width: 10%;
-	left: 60%;
+	width: 40%;
+	left: 50%;
 }
-div.facedown
+span.ui-state-default,
+.ui-widget-content span.ui-state-default,
+.ui-widget-header span.ui-state-default {
+
+	background: #ff0000;
+
+}
+
+div.ui-widget-header, div.ui-widget-content {
+
+	background: #008000;
+}
+.Backwards
 {
-/*	background-image: url('http://static.tumblr.com/264e223b77645f2705fa9cf2e310987c/jvsbomj/M60mpstkq/tumblr_static_question_mark.png');*/
+	height: 100px;
+	width: 200px;
+	color: #000000;
+	background: #ffff00;
+	border-width: 0;
+	top: 34%;
+	float: left;
+	position: fixed;
+	left: 15%;
+	font-size: 2em;
+	border-radius: 20%;
+}
+.Forwards
+{
+	background:#0000ff;
+	left: 30%;
+	color: #ffffff;
 }
 .red
 {
@@ -127,4 +149,5 @@ div.facedown
 {
 	background:#dda0dd;
 }
+
 
